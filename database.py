@@ -15,7 +15,7 @@ def delete(name):
     connection = get_connection()
     cursor = connection.cursor()
 
-    cursor.execute('''DELETE FROM groceryitems WHERE itemname= %s ''', (name,))
+    cursor.execute('''DELETE FROM groceryitems WHERE item_name= %s ''', (name,))
     connection.commit()
     connection.close()
 
@@ -110,7 +110,7 @@ def get_name(user_email):
     connection.commit()
     connection.close()
 
-    return result_name
+    return result_name.title()
 
 
 def get_user():
